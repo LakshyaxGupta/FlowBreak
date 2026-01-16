@@ -41,57 +41,6 @@ It answers questions like:
 
 ---
 
-## 🛠 Full-Stack Architecture
-
-Chrome Extension
-↓
-Node.js API (Analytics Engine)
-↓
-PostgreSQL Database
-↓
-React Dashboard
-↓
-Python FastAPI Focus Insight Agent
-
-
----
-
-### 🧩 Components Overview
-
-#### ✔ Chrome Extension (MV3)
-- Tracks tab switches
-- Captures visited domains
-- Records timestamps for activity
-
-#### ✔ Node.js Backend
-- Ingests events from extension
-- Reconstructs sessions
-- Computes analytics
-- Communicates with Python agent
-
-#### ✔ PostgreSQL Database
-- Stores users
-- Stores sessions
-- Stores event logs
-
-#### ✔ React Dashboard
-- Focus score visualization
-- Attention break timeline
-- Domain charts
-- Interactive chat UI for agent
-
-#### ✔ Python FastAPI Agent
-- Stores session context
-- Applies rule-based reasoning
-- Generates explanations & suggestions
-
----
-
-## 📁 Project Structure
-
-
----
-
 ### 🧩 Components Overview
 
 #### ✔ Chrome Extension (MV3)
