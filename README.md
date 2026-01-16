@@ -72,15 +72,17 @@ It answers questions like:
 
 ---
 
+
 ## 📁 Project Structure
 
+```
 FlowBreak/
-├── flowbreak-client/ # React frontend
-├── flowbreak-server/ # Node.js backend + PostgreSQL
-├── flowbreak-extension/ # Chrome extension (MV3)
-├── flowbreak-agent/ # Python FastAPI reasoning agent
+├── flowbreak-client/      # React frontend
+├── flowbreak-server/      # Node.js backend + PostgreSQL
+├── flowbreak-extension/   # Chrome extension (MV3)
+├── flowbreak-agent/       # Python FastAPI reasoning agent
 └── README.md
-
+```
 
 ---
 
@@ -92,17 +94,123 @@ FlowBreak/
 CREATE DATABASE flowbreak;
 ```
 
+### 2️⃣ Backend (Node.js)
 
-🏅 Tech Stack
-Layer	                   Technologies
-Chrome Extension	       JavaScript (MV3)
-Backend API	             Node.js, Express
-Database	               PostgreSQL
-Frontend	               React, Vite 
-AI Reasoning Service	   Python, FastAPI, Pydantic
+```bash
+cd flowbreak-server
+npm install
+```
 
-⭐ Credits
-Built by Lakshya Gupta
+Create `.env`:
 
-📄 License
+```env
+PG_HOST=localhost
+PG_PORT=5432
+PG_USER=postgres
+PG_PASSWORD=your_password_here
+PG_DATABASE=flowbreak
+AGENT_URL=http://localhost:8001
+```
+
+Start backend:
+
+```bash
+npm run dev
+```
+
+### 3️⃣ Python Focus Insight Agent
+
+```bash
+cd flowbreak-agent
+python -m venv venv
+```
+
+Activate environment:
+
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+**macOS / Linux:**
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Create `.env`:
+
+```env
+AGENT_HOST=127.0.0.1
+AGENT_PORT=8001
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001
+```
+
+Run agent:
+
+```bash
+python main.py
+```
+
+API Docs: `http://localhost:8001/docs`
+
+### 4️⃣ Frontend (React)
+
+```bash
+cd flowbreak-client
+npm install
+npm run dev
+```
+
+Open: `http://localhost:3000`
+
+### 5️⃣ Chrome Extension
+
+1. Open `chrome://extensions`
+2. Enable Developer Mode
+3. Click Load Unpacked
+4. Select `flowbreak-extension/`
+
+---
+
+## 💬 How to Use
+
+1. Load the Chrome extension
+2. Browse normally (YouTube, GitHub, StackOverflow, etc.)
+3. Open the dashboard
+4. Enter your email
+5. Load analytics
+6. Ask questions to the Focus Insight Agent
+
+---
+
+## 🧪 Sample Queries
+
+- "Why was my focus low?"
+- "What are my top distracting domains?"
+- "How can I improve focus?"
+- "Explain my idle time."
+- "Summarize this session."
+
+---
+
+## 🛡 Security
+
+- Secrets stored in `.env` files
+- `.env` ignored via `.gitignore`
+- `.env.example` provided for reference
+- Sensitive credentials never committed
+
+---
+
+
+## ⭐ Credits
+Built with ❤️ by Lakshya Gupta
+
+## 📄 License
 MIT License
