@@ -7,49 +7,131 @@
 
 ## 🧠 What is FlowBreak?
 
-FlowBreak is a full-stack focus analytics platform that helps users understand their attention patterns while working online. It tracks tab activity via a Chrome extension, computes focus metrics in a Node.js backend, and powers an explainable AI agent in Python that answers follow-up user queries about productivity.
+**FlowBreak** is a full-stack productivity analytics platform that helps users **measure, understand, and improve their focus** while working online.
 
-It’s perfect for:
-✔ students  
-✔ remote workers  
-✔ people who want to self-analyze productivity   
-✔ anyone interested in real-world full-stack + AI-like systems
+It tracks browsing behavior using a Chrome extension, computes focus metrics on the backend, visualizes insights in a React dashboard, and provides **explainable AI-style reasoning** through a Python FastAPI agent.
+
+This project is built to demonstrate **real-world system design**, not a copy-paste AI chatbot.
 
 ---
 
-## 🔥 Key Features
+## ⚡ Key Features
 
 ### 📊 Analytics & Insights
+- ✔ **Focus Score (0–100)** — Calculated using attention breaks, idle time, and distracting domains
+- ✔ **Attention Break Detection** — Detects rapid tab switching, navigation loops, and idle spikes
+- ✔ **Idle Time Analysis** — Identifies periods of inactivity during sessions
+- ✔ **Domain Distribution** — Shows which websites contributed most to distraction
 
-✔ **Focus Score** — Calculates a 0–100 score based on breaks, idle time, and distracting domains  
-✔ **Attention Break Detection** — Detects and visualizes context switches and distraction loops  
-✔ **Domain Distribution** — Shows top websites that affected focus  
+---
 
 ### 🤖 Explainable Reasoning Agent
+A **rule-based Focus Insight Agent** built with **Python FastAPI**.
 
-✔ Rule-based Python agent (FastAPI)  
-✔ Answers questions like:
-   - “Why was my focus low?”
-   - “How can I improve?”
-   - “Which sites distracted me?”
-✔ Deterministic, transparent logic (no opaque ML models)
+It answers questions like:
+- “Why was my focus low?”
+- “How can I improve my focus?”
+- “Which sites distracted me the most?”
+- “Explain my idle time.”
+- “Summarize this session.”
 
-### 🛠 Full-Stack Architecture
+✅ Deterministic  
+✅ Transparent logic  
+✅ Context-aware follow-up questions 
 
-✔ Chrome Extension (MV3) tracks user activity  
-✔ Node.js API server ingests events, computes analytics  
-✔ PostgreSQL database for persistent storage  
-✔ React dashboard visualizes analytics and supports interactive chat with agent
+---
+
+## 🛠 Full-Stack Architecture
+
+Chrome Extension
+↓
+Node.js API (Analytics Engine)
+↓
+PostgreSQL Database
+↓
+React Dashboard
+↓
+Python FastAPI Focus Insight Agent
+
+
+---
+
+### 🧩 Components Overview
+
+#### ✔ Chrome Extension (MV3)
+- Tracks tab switches
+- Captures visited domains
+- Records timestamps for activity
+
+#### ✔ Node.js Backend
+- Ingests events from extension
+- Reconstructs sessions
+- Computes analytics
+- Communicates with Python agent
+
+#### ✔ PostgreSQL Database
+- Stores users
+- Stores sessions
+- Stores event logs
+
+#### ✔ React Dashboard
+- Focus score visualization
+- Attention break timeline
+- Domain charts
+- Interactive chat UI for agent
+
+#### ✔ Python FastAPI Agent
+- Stores session context
+- Applies rule-based reasoning
+- Generates explanations & suggestions
 
 ---
 
 ## 📁 Project Structure
+
+
+---
+
+### 🧩 Components Overview
+
+#### ✔ Chrome Extension (MV3)
+- Tracks tab switches
+- Captures visited domains
+- Records timestamps for activity
+
+#### ✔ Node.js Backend
+- Ingests events from extension
+- Reconstructs sessions
+- Computes analytics
+- Communicates with Python agent
+
+#### ✔ PostgreSQL Database
+- Stores users
+- Stores sessions
+- Stores event logs
+
+#### ✔ React Dashboard
+- Focus score visualization
+- Attention break timeline
+- Domain charts
+- Interactive chat UI for agent
+
+#### ✔ Python FastAPI Agent
+- Stores session context
+- Applies rule-based reasoning
+- Generates explanations & suggestions
+
+---
+
+## 📁 Project Structure
+
 FlowBreak/
 ├── flowbreak-client/ # React frontend
-├── flowbreak-server/ # Node.js API + PostgreSQL
-├── flowbreak-extension/ # Chrome extension
+├── flowbreak-server/ # Node.js backend + PostgreSQL
+├── flowbreak-extension/ # Chrome extension (MV3)
 ├── flowbreak-agent/ # Python FastAPI reasoning agent
-└── README.md # This file
+└── README.md
+
 
 ---
 
@@ -61,72 +143,6 @@ FlowBreak/
 CREATE DATABASE flowbreak;
 ```
 
-2️⃣ Backend (Node.js)
-cd flowbreak-server
-npm install
-
-Create .env:
-
-PG_HOST=localhost
-PG_PORT=5432
-PG_USER=postgres
-PG_PASSWORD=your_password_here
-PG_DATABASE=flowbreak
-AGENT_URL=http://localhost:8001
-
-
-Start:
-npm run dev
-
-3️⃣ Python Agent (FastAPI)
-cd flowbreak-agent
-python -m venv venv
-venv\Scripts\activate        # Windows
-# OR
-source venv/bin/activate     # macOS / Linux
-pip install -r requirements.txt
-
-Create .env:
-
-AGENT_HOST=127.0.0.1
-AGENT_PORT=8001
-ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001
-
-
-Start:
-python main.py
-Agent docs: http://localhost:8001/docs
-
-4️⃣ Frontend (React)
-cd flowbreak-client
-npm install
-npm run dev
-
-Open:
-http://localhost:3000
-
-5️⃣ Chrome Extension
-Open chrome://extensions
-Enable Developer Mode
-Click Load Unpacked
-Select flowbreak-extension/
-
-💬 How to Use
-Load the extension
-Open sites and switch tabs
-Go to Dashboard
-Enter your email
-Load your analytics
-Ask the Focus Agent questions
-
-🧪 Sample Chat Queries
-✔ “Why was my focus low?”
-✔ “What are my top distracting domains?”
-✔ “How can I improve focus?”
-✔ “Explain idle time patterns”
-
-🛡 Security
-Environment variables are kept outside source control using .env. A safe .env.example exists in each service directory.
 
 🏅 Tech Stack
 Layer	                   Technologies
