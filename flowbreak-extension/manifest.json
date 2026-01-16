@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "FlowBreak",
+  "description": "Tracks focus by detecting attention breaks",
+  "version": "1.0",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["http://localhost:3001/*"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

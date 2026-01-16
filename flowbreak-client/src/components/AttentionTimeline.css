@@ -1,0 +1,144 @@
+.attention-timeline {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.no-breaks {
+  text-align: center;
+  padding: 3rem;
+  color: #4caf50;
+  font-size: 1.1rem;
+}
+
+.breaks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+}
+
+/* Custom scrollbar styling */
+.breaks-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.breaks-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.breaks-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.breaks-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.break-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  background: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.break-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.break-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.break-number {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.break-time {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.break-reason {
+  margin-bottom: 0.75rem;
+}
+
+.reason-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: #ff9800;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.break-explanation {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.break-explanation p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.break-domains {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.domains-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.domains-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.domain-tag {
+  padding: 0.3rem 0.7rem;
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
